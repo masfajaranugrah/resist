@@ -8,24 +8,14 @@
     "require": {
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.1",
-        "laravel/framework": ">=13.8 <13.12",
-        "laravel/tinker": "^3.0",
-        "symfony/console": "^7.4",
-        "symfony/http-foundation": "^7.4",
-        "symfony/http-kernel": "^7.4",
-        "symfony/routing": "^7.4",
-        "symfony/translation": "^7.4",
-        "symfony/finder": "^7.4",
-        "symfony/process": "^7.4",
-        "symfony/var-dumper": "^7.4",
-        "symfony/mailer": "^7.4",
-        "symfony/mime": "^7.4"
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^2.9"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.27",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^7.0|^8.0",
+        "nunomaduro/collision": "^8.0",
         "phpunit/phpunit": "^11.0"
     },
     "autoload": {
