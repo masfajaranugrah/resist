@@ -174,7 +174,7 @@ tailwind.config = {
             <p class="font-body-md text-body-md text-on-surface-variant">Berikan ulasan positif Anda di Google Maps.</p>
           </div>
           <div class="flex flex-col gap-2 w-full md:w-auto flex-shrink-0">
-            <a class="flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container font-label-md text-label-md px-6 py-3 rounded-xl hover:shadow-lg transition-shadow" href="#" target="_blank">
+            <a class="flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container font-label-md text-label-md px-6 py-3 rounded-xl hover:shadow-lg transition-shadow" href="https://maps.app.goo.gl/qvdRxYDs1u5Yw8cb7" target="_blank">
               <span class="material-symbols-outlined">location_on</span> Tulis Review
             </a>
             <div class="border border-dashed border-outline-variant rounded-xl p-2 flex items-center justify-center cursor-pointer hover:bg-primary/5 transition-colors" onclick="this.querySelector('input').click()">
