@@ -144,6 +144,7 @@
 <th class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Tanggal Registrasi</th>
 <th class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Alamat</th>
 <th class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Bukti Upload</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant uppercase tracking-wider text-xs text-center">Aksi</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant">
@@ -203,10 +204,20 @@
     @endif
   </div>
 </td>
+<td class="px-6 py-4 text-center">
+  <button
+    onclick="confirmDelete('{{ route('admin.registrations.destroy', $reg->id) }}', '{{ addslashes($reg->nama) }}')"
+    class="inline-flex items-center gap-1 px-3 py-1.5 bg-error-container text-on-error-container text-xs font-bold rounded-lg hover:bg-red-200 transition-colors"
+    title="Hapus data ini"
+  >
+    <span class="material-symbols-outlined text-base">delete</span>
+    Hapus
+  </button>
+</td>
 </tr>
 @empty
 <tr>
-  <td colspan="8" class="px-6 py-10 text-center text-on-surface-variant">Tidak ada data registrasi.</td>
+  <td colspan="9" class="px-6 py-10 text-center text-on-surface-variant">Tidak ada data registrasi.</td>
 </tr>
 @endforelse
 </tbody>
@@ -222,6 +233,18 @@
 </div>
 </div>
 </div>
+<!-- Success Toast -->
+@if(session('success'))
+<div id="toast-success" class="fixed top-6 right-6 z-50 flex items-center gap-3 bg-white border border-green-200 text-green-800 px-5 py-4 rounded-2xl shadow-xl max-w-sm" role="alert">
+  <span class="material-symbols-outlined text-green-600 text-2xl">check_circle</span>
+  <span class="text-sm font-semibold">{{ session('success') }}</span>
+  <button onclick="document.getElementById('toast-success').remove()" class="ml-auto text-green-400 hover:text-green-700">
+    <span class="material-symbols-outlined text-lg">close</span>
+  </button>
+</div>
+<script>setTimeout(()=>{const t=document.getElementById('toast-success');if(t)t.remove();},4000);</script>
+@endif
+
 <!-- Footer -->
 <footer class="mt-16 py-8 flex flex-col items-center gap-2 text-center">
 <div class="font-label-md text-label-md text-on-surface">Jernih Multi Komunikasi</div>
@@ -246,6 +269,30 @@
   </div>
 </div>
 
+<!-- Delete Confirmation Modal -->
+<div id="delete-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+  <div class="bg-white rounded-2xl max-w-sm w-full mx-4 p-6 shadow-2xl flex flex-col items-center gap-4">
+    <div class="w-14 h-14 rounded-full bg-error-container flex items-center justify-center">
+      <span class="material-symbols-outlined text-3xl text-on-error-container">delete_forever</span>
+    </div>
+    <h3 class="text-lg font-bold text-on-surface text-center">Hapus Data Pelanggan?</h3>
+    <p class="text-sm text-on-surface-variant text-center" id="delete-modal-name"></p>
+    <p class="text-xs text-error text-center">Data dan semua bukti gambar akan dihapus permanen dan tidak bisa dipulihkan.</p>
+    <div class="flex gap-3 w-full mt-2">
+      <button onclick="closeDeleteModal()" class="flex-1 py-2.5 rounded-xl border border-outline-variant text-on-surface font-semibold hover:bg-surface-container transition-colors text-sm">
+        Batal
+      </button>
+      <form id="delete-form" method="POST" class="flex-1">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-error text-white font-bold hover:bg-red-700 transition-colors text-sm">
+          Ya, Hapus
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
 function showImageModal(src, title) {
   document.getElementById('modal-img').src = src;
@@ -257,6 +304,18 @@ function showImageModal(src, title) {
 function closeImageModal() {
   document.getElementById('image-modal').classList.add('hidden');
   document.getElementById('modal-img').src = '';
+  document.body.style.overflow = '';
+}
+
+function confirmDelete(url, name) {
+  document.getElementById('delete-form').action = url;
+  document.getElementById('delete-modal-name').textContent = 'Anda akan menghapus data "' + name + '".';
+  document.getElementById('delete-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDeleteModal() {
+  document.getElementById('delete-modal').classList.add('hidden');
   document.body.style.overflow = '';
 }
 </script>

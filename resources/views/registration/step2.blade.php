@@ -222,11 +222,67 @@ function toggleCheck() {
   }
 }
 
-function markUploaded(id, input) {
+async function compressImage(file, { quality = 0.6, type = 'image/jpeg' }) {
+  if (!file.type.startsWith('image/') || file.size < 300 * 1024) return file;
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        const max_width = 1200;
+        const max_height = 1200;
+
+        if (width > height) {
+          if (width > max_width) {
+            height = Math.round((height * max_width) / width);
+            width = max_width;
+          }
+        } else {
+          if (height > max_height) {
+            width = Math.round((width * max_height) / height);
+            height = max_height;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob((blob) => {
+          const newFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", {
+            type: type,
+            lastModified: Date.now()
+          });
+          resolve(newFile);
+        }, type, quality);
+      };
+    };
+  });
+}
+
+async function markUploaded(id, input) {
   if (input.files && input.files[0]) {
     const el = document.getElementById(id);
-    el.textContent = '✓ Sudah diunggah';
-    el.classList.replace('text-error','text-primary');
+    el.textContent = 'Memproses...';
+    
+    try {
+      const compressedFile = await compressImage(input.files[0], { quality: 0.6 });
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(compressedFile);
+      input.files = dataTransfer.files;
+
+      el.textContent = '✓ Sudah diunggah';
+      el.classList.replace('text-error', 'text-primary');
+    } catch (err) {
+      el.textContent = '✓ Sudah diunggah (Gagal kompresi)';
+      el.classList.replace('text-error', 'text-primary');
+    }
   }
 }
 

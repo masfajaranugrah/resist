@@ -23,4 +23,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('/admin/export', [AdminController::class, 'exportCsv'])->name('admin.export');
     Route::get('/admin/export-pdf', [AdminController::class, 'exportPdf'])->name('admin.export.pdf');
+    Route::delete('/admin/registrations/{id}', [AdminController::class, 'destroy'])->name('admin.registrations.destroy');
 });

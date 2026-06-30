@@ -131,4 +131,22 @@ class AdminController extends Controller
 
         return $pdf->download($filename);
     }
+
+    public function destroy($id)
+    {
+        $reg = Registration::findOrFail($id);
+
+        // Hapus file gambar dari storage
+        $fields = ['bukti_ig', 'bukti_tiktok_jernih', 'bukti_tiktok_creatif', 'bukti_gmaps'];
+        foreach ($fields as $field) {
+            if ($reg->$field && \Storage::disk('public')->exists($reg->$field)) {
+                \Storage::disk('public')->delete($reg->$field);
+            }
+        }
+
+        $reg->delete();
+
+        return redirect()->route('admin.dashboard', request()->query())
+            ->with('success', 'Data pelanggan "' . $reg->nama . '" berhasil dihapus.');
+    }
 }
