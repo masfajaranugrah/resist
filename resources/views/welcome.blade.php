@@ -4,39 +4,10 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Jernih Multi Komunikasi - Registrasi Ulang</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "surface-bright": "#f9f9fe","inverse-primary": "#adc6ff","secondary-container": "#fe9400",
-        "on-secondary-fixed": "#2d1600","inverse-surface": "#2e3034","on-surface": "#1a1c1f",
-        "outline-variant": "#c1c6d7","background": "#f9f9fe","surface-container": "#ededf2",
-        "surface-container-highest": "#e2e2e7","error": "#ba1a1a","primary": "#0058bc",
-        "on-surface-variant": "#414755","secondary": "#8c5000","surface-container-lowest": "#ffffff",
-        "surface": "#f9f9fe","on-primary": "#ffffff","on-background": "#1a1c1f",
-        "outline": "#717786","tertiary": "#006762","primary-container": "#0070eb",
-        "surface-container-low": "#f3f3f8","on-secondary": "#ffffff","surface-container-high": "#e8e8ed",
-        "on-secondary-container": "#633700","tertiary-container": "#00837c",
-        "on-tertiary": "#ffffff","on-primary-container": "#fefcff",
-      },
-      spacing: { "gutter": "1.5rem","section-padding": "2rem","container-max-width": "640px" },
-      fontFamily: { "display-lg-mobile": ["Montserrat"],"label-sm": ["Inter"],"body-md": ["Inter"],"label-md": ["Inter"],"headline-md": ["Montserrat"] },
-      fontSize: {
-        "display-lg-mobile": ["32px", {"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],
-        "label-sm": ["12px", {"lineHeight":"16px","fontWeight":"500"}],
-        "body-md": ["16px", {"lineHeight":"24px","fontWeight":"400"}],
-        "label-md": ["14px", {"lineHeight":"20px","fontWeight":"600"}],
-        "headline-md": ["24px", {"lineHeight":"32px","fontWeight":"600"}],
-      }
-    },
-  },
-}
-</script>
+
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 .main-card-shadow { box-shadow: 0px 20px 40px rgba(0,0,0,0.05); }
@@ -44,6 +15,7 @@ tailwind.config = {
 .progress-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.1)} }
 </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gradient-soft min-h-screen flex flex-col text-on-surface">
 

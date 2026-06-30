@@ -9,98 +9,8 @@
 <!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-error-container": "#93000a",
-                        "inverse-primary": "#adc6ff",
-                        "secondary-fixed": "#ffdcbf",
-                        "primary": "#0058bc",
-                        "on-tertiary": "#ffffff",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-bright": "#f9f9fe",
-                        "on-tertiary-fixed-variant": "#00504c",
-                        "surface-container-low": "#f3f3f8",
-                        "on-secondary-fixed": "#2d1600",
-                        "on-secondary": "#ffffff",
-                        "on-primary-container": "#fefcff",
-                        "tertiary-container": "#00837c",
-                        "primary-fixed-dim": "#adc6ff",
-                        "on-tertiary-container": "#f3fffd",
-                        "surface-container": "#ededf2",
-                        "outline": "#717786",
-                        "background": "#f9f9fe",
-                        "on-background": "#1a1c1f",
-                        "error": "#ba1a1a",
-                        "on-surface": "#1a1c1f",
-                        "on-error": "#ffffff",
-                        "surface-variant": "#e2e2e7",
-                        "secondary-fixed-dim": "#ffb874",
-                        "on-primary-fixed": "#001a41",
-                        "on-secondary-container": "#633700",
-                        "error-container": "#ffdad6",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-fixed": "#00201e",
-                        "inverse-surface": "#2e3034",
-                        "inverse-on-surface": "#f0f0f5",
-                        "tertiary": "#006762",
-                        "secondary": "#8c5000",
-                        "surface-dim": "#d9dade",
-                        "surface-tint": "#005bc1",
-                        "surface-container-high": "#e8e8ed",
-                        "primary-fixed": "#d8e2ff",
-                        "surface-container-highest": "#e2e2e7",
-                        "on-secondary-fixed-variant": "#6a3b00",
-                        "surface": "#f9f9fe",
-                        "primary-container": "#0070eb",
-                        "outline-variant": "#c1c6d7",
-                        "tertiary-fixed": "#61f9ef",
-                        "on-surface-variant": "#414755",
-                        "on-primary-fixed-variant": "#004493",
-                        "secondary-container": "#fe9400",
-                        "tertiary-fixed-dim": "#39dcd2"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "form-element-gap": "1.25rem",
-                        "container-max-width": "640px",
-                        "gutter": "1.5rem",
-                        "stack-gap": "1rem",
-                        "section-padding": "2rem"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["Inter"],
-                        "headline-md": ["Montserrat"],
-                        "display-lg": ["Montserrat"],
-                        "body-lg": ["Inter"],
-                        "label-md": ["Inter"],
-                        "headline-sm": ["Montserrat"],
-                        "display-lg-mobile": ["Montserrat"],
-                        "body-md": ["Inter"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
-                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-                    }
-                }
-            }
-        }
-    </script>
+
+
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -124,6 +34,7 @@
             background: #717786;
         }
     </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-surface-bright text-on-surface font-body-md text-body-md overflow-x-hidden min-h-screen flex flex-col md:flex-row">
 <!-- Sidebar Navigation (Desktop) -->

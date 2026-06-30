@@ -4,43 +4,17 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Jernih Multi Komunikasi - Selesaikan Langkah Terakhir!</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "surface-bright": "#f9f9fe","on-surface": "#1a1c1f","outline-variant": "#c1c6d7",
-        "primary": "#0058bc","on-surface-variant": "#414755","secondary": "#8c5000",
-        "secondary-container": "#fe9400","on-secondary-container": "#633700",
-        "surface-container-lowest": "#ffffff","on-primary": "#ffffff","outline": "#717786",
-        "primary-container": "#0070eb","surface-container-low": "#f3f3f8",
-        "surface-container-highest": "#e2e2e7","surface-container": "#ededf2",
-        "error": "#ba1a1a","error-container": "#ffdad6","on-error-container": "#93000a",
-      },
-      spacing: { "gutter": "1.5rem","section-padding": "2rem","container-max-width": "640px" },
-      fontFamily: { "display-lg-mobile": ["Montserrat"],"label-sm": ["Inter"],"body-md": ["Inter"],"label-md": ["Inter"],"headline-md": ["Montserrat"],"headline-sm": ["Montserrat"] },
-      fontSize: {
-        "display-lg-mobile": ["32px", {"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],
-        "label-sm": ["12px", {"lineHeight":"16px","fontWeight":"500"}],
-        "body-md": ["16px", {"lineHeight":"24px","fontWeight":"400"}],
-        "label-md": ["14px", {"lineHeight":"20px","fontWeight":"600"}],
-        "headline-md": ["24px", {"lineHeight":"32px","fontWeight":"600"}],
-        "headline-sm": ["20px", {"lineHeight":"28px","fontWeight":"600"}],
-      }
-    },
-  },
-}
-</script>
+
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 .bento-card { transition: box-shadow 0.2s ease; }
 .glass-panel { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
 @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
 </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-surface-bright text-on-surface font-body-md min-h-screen flex flex-col">
 
